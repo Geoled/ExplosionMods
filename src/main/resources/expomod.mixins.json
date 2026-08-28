@@ -3,7 +3,9 @@
 	"package": "com.expomod.mixin",
 	"compatibilityLevel": "JAVA_21",
 	"mixins": [
-		"ExampleMixin"
+		"ExplosionMixin",
+		"TntBlockMixin",
+		"CreeperMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
