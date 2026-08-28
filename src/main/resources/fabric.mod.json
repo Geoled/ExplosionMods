@@ -2,16 +2,16 @@
 	"schemaVersion": 1,
 	"id": "expomod",
 	"version": "${version}",
-	"name": "expomod",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"name": "Realistic Explosions Mod",
+	"description": "Adds a realistic explosion system to Minecraft with completely overhauled default explosions and new explosives.",
 	"authors": [
-		"Me!"
+		"Expomod Team"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"homepage": "https://github.com/expomod",
+		"sources": "https://github.com/expomod/realistic-explosions"
 	},
-	"license": "CC0-1.0",
+	"license": "MIT",
 	"icon": "assets/expomod/icon.png",
 	"environment": "*",
 	"entrypoints": {
