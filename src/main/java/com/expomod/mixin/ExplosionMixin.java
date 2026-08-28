@@ -74,9 +74,9 @@ public abstract class ExplosionMixin {
     private void applyOverpressureDamage(Level level, double x, double y, double z, 
                                          float radius, float power) {
         List<Entity> entities = level.getEntities(null, 
-            level.getBoundsForAABB(new net.minecraft.world.phys.AABB(
+            new net.minecraft.world.phys.AABB(
                 x - radius, y - radius, z - radius,
-                x + radius, y + radius, z + radius)));
+                x + radius, y + radius, z + radius));
         
         for (Entity entity : entities) {
             double dist = entity.distanceToSqr(x, y, z);
@@ -97,9 +97,9 @@ public abstract class ExplosionMixin {
             
             entity.hurt(level.damageSources().explosion(null), damageAmount);
             
-            // Chance to set on fire from爆炸 heat
-            if (getFire() && entity.random.nextFloat() < (power / (actualDist + 1))) {
-                entity.setSecondsOnFire((int)(power / actualDist));
+            // Chance to set on fire from explosion heat
+            if (getFire() && level.random.nextFloat() < (power / (actualDist + 1))) {
+                entity.setRemainingFireTicks((int)(power / actualDist * 20));
             }
         }
     }
@@ -107,9 +107,9 @@ public abstract class ExplosionMixin {
     private void applyRealisticKnockback(Level level, double x, double y, double z,
                                          float radius, float power) {
         List<Entity> entities = level.getEntities(null,
-            level.getBoundsForAABB(new net.minecraft.world.phys.AABB(
+            new net.minecraft.world.phys.AABB(
                 x - radius, y - radius, z - radius,
-                x + radius, y + radius, z + radius)));
+                x + radius, y + radius, z + radius));
         
         for (Entity entity : entities) {
             double dist = entity.distanceToSqr(x, y, z);
@@ -152,8 +152,7 @@ public abstract class ExplosionMixin {
                     
                     // Block resistance affects destruction chance
                     var blockState = level.getBlockState(new net.minecraft.core.BlockPos(bx, by, bz));
-                    float resistance = blockState.getBlock().getExplosionResistance(
-                        level, new net.minecraft.core.BlockPos(bx, by, bz), null);
+                    float resistance = blockState.getBlock().getExplosionResistance();
                     
                     // Realistic: weaker blocks destroyed first, stronger blocks may survive
                     float destructionChance = (radius - (float)dist) / radius;
@@ -170,6 +169,7 @@ public abstract class ExplosionMixin {
     private void spawnRealisticEffects(Level level, double x, double y, double z, float power) {
         // Enhanced particle effects for realism
         int particleCount = (int)(power * 50);
+        float radius = power * 2.0f;
         
         for (int i = 0; i < particleCount; i++) {
             double offsetX = (level.random.nextDouble() - 0.5) * radius * 2;

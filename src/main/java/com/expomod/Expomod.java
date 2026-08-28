@@ -100,23 +100,23 @@ LOGGER.info("Registered explosive blocks");
 private void registerItems() {
 // C4 Item
 C4_ITEM = registerItem("c4", new BlockItem(C4_BLOCK, 
-new Item.Properties().arch$registryOverride(BuiltInRegistries.BLOCK)));
+new Item.Properties()));
 
 // ANFO Item
 ANFO_ITEM = registerItem("anfo", new BlockItem(ANFO_BLOCK, 
-new Item.Properties().arch$registryOverride(BuiltInRegistries.BLOCK)));
+new Item.Properties()));
 
 // Nitroglycerin Item
 NITROGLYCERIN_ITEM = registerItem("nitroglycerin", new BlockItem(NITROGLYCERIN_BLOCK, 
-new Item.Properties().arch$registryOverride(BuiltInRegistries.BLOCK)));
+new Item.Properties()));
 
 // Thermite Item
 THERMITE_ITEM = registerItem("thermite", new BlockItem(THERMITE_BLOCK, 
-new Item.Properties().arch$registryOverride(BuiltInRegistries.BLOCK)));
+new Item.Properties()));
 
 // Fuel-Air Bomb Item
 FUEL_AIR_BOMB_ITEM = registerItem("fuel_air_bomb", new BlockItem(FUEL_AIR_BOMB_BLOCK, 
-new Item.Properties().arch$registryOverride(BuiltInRegistries.BLOCK)));
+new Item.Properties()));
 
 // Detonator - Used to trigger C4 and other explosives
 DETONATOR_ITEM = registerItem("detonator", new Item(
