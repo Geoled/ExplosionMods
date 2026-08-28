@@ -1,49 +1,10 @@
 ```
-# Dependencies
 .gradle/
-node_modules/
-
-# Build artifacts
 build/
-dist/
 target/
-
-# IDE files
-.vscode/
-.idea/
-*.swp
-*.swo
-
-# Logs
 *.log
-
-# Environment
-.env
-.env.local
-*.env.*
-
-# Python cache (if any Python files present)
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-
-# Coverage reports
-coverage/
-htmlcov/
-.coverage
-
-# Temporary files
 *.tmp
-*.temp
-
-# OS files
+*.swp
 .DS_Store
 Thumbs.db
-
-# MyPy cache
-.mypy_cache/
-
-# Pytest cache
-.pytest_cache/
 ```
